@@ -1,11 +1,10 @@
 import styled from '@emotion/styled'
 import { useToggle, useCountdown } from '../hooks'
 import { useState } from 'react'
-import { Button, Input } from '../components'
+import { Button, Input, OTPInput } from '../components'
 import { toEnglishDigits, toPersianNumber } from '../utils/number'
 import { toast } from 'sonner'
 import { Back } from '../assets/icons'
-import OtpInput from 'react-otp-input'
 import { useNavigate } from 'react-router-dom'
 import { phoneNumberValidator } from '../utils/validation'
 
@@ -89,8 +88,15 @@ const AuthFormMobileStep = ({ hasAccount, toggleHasAccount, onNext, mobile, setM
   )
 }
 const AuthFormVerificationStep = ({ mobile, timer, onBack }) => {
-  const [code, setCode] = useState('')
   const navigate = useNavigate()
+  const handleSubmit = (pin) => {
+    if (toEnglishDigits(pin) === '1111') {
+      toast.success('ورود موفق بود')
+      navigate('/')
+    } else {
+      toast.error('کد اشتباه است.')
+    }
+  }
   return (
     <AuthFormVerificationStepWrapper className='flex-column gap-2'>
       <Button
@@ -110,21 +116,9 @@ const AuthFormVerificationStep = ({ mobile, timer, onBack }) => {
           className='change-mobile'
         />
       </div>
-
-      <OtpInput
-        containerStyle={{ display: 'flex', justifyContent: 'space-between' }}
-        inputStyle={{
-          textAlign: 'center',
-          fontSize: '2rem',
-          width: '60px',
-          height: '60px',
-          border: '1px solid var(--text-300)',
-          borderRadius: 'var(--md-radius)',
-        }}
-        value={code}
-        onChange={setCode}
-        numInputs={4}
-        renderInput={(props) => <input {...props} />}
+      <OTPInput
+        length={4}
+        onComplete={handleSubmit}
       />
       {timer.timeLeft.total > 0 ? (
         <div className='flex-between timer'>
@@ -143,15 +137,7 @@ const AuthFormVerificationStep = ({ mobile, timer, onBack }) => {
       <Button
         text='تایید'
         variant='contained'
-        onClick={() => {
-          console.log(code)
-
-          if (toEnglishDigits(code) === '1111') {
-            navigate('/')
-          } else {
-            toast.error('کد اشتباه است.')
-          }
-        }}
+        // onClick={handleSubmit}
       />
     </AuthFormVerificationStepWrapper>
   )

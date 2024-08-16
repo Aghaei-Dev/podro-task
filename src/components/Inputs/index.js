@@ -1,3 +1,3 @@
 import Input from './Input'
-
-export { Input }
+import OTPInput from './OTPInput'
+export { Input, OTPInput }
