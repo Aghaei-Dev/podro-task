@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+/* .vazirmatn-<uniquifier > {
+  font-family: 'Vazirmatn', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+:root {
+  --bg-white: #fff;
+
+  --icon-color: #f3f3f3a8;
+  --light-border: #4b4b4b91;
+  --hard-border: #919191;
+
+  --primary-50: #eff5ff94;
+  --primary-100: #98bdfa;
+  --primary-200: #3b82f6;
+  --primary-300: #196cf4;
+  --primary-400: #0a5bdf;
+  --primary-500: #094dbd;
+  --primary-600: #073f9b;
+  --primary-700: #063179;
+  --primary-800: #042357;
+  --primary-900: #021635;
+  --primary-950: #021635;
+
+  --text-white: #ffffff;
+  --text-100: #f5f5f5;
+  --text-200: #d6d6d6;
+  --text-300: #b8b8b8;
+  --text-400: #999999;
+  --text-500: #7a7a7a;
+  --text-600: #5c5c5c;
+  --text-700: #3d3d3d;
+  --text-800: #1f1f1f;
+  --text-850: #1a1a1a;
+  --text-900: #000000;
+
+  --bg-backdrop: #000000cc;
+
+  --radius: 1rem;
+  --md-radius: 0.5rem;
+  --sm-radius: 0.25rem;
+
+  --primary: 'Vazirmatn';
+
+  --transition: all 0.3s ease-out;
+}
+
+::selection {
+  background: inherit;
+  color: inherit;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+input,
+textarea,
+button {
+  outline: 0;
+  border: 0;
+  background-color: unset;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+svg {
+  width: 18px;
+}
+html,
+body {
+  background: var(--primary-50);
+}
+body {
+  font-family: var(--primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+}
+
+/* global classes */
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.flex-column {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.gap-0_5 {
+  gap: 0.25rem;
+}
+.gap-1 {
+  gap: 0.5rem;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+.gap-3 {
+  gap: 1.5rem;
+}
+
+.gap-4 {
+  gap: 2rem;
+}
+.fa {
+  font-feature-settings: 'ss02';
+}
